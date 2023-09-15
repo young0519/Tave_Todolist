@@ -1,6 +1,5 @@
 import {createGlobalStyle} from "styled-components";
 
-
 const GlobalStyle = createGlobalStyle`
 *, *::before, *::after {
   margin : 0;
@@ -17,11 +16,13 @@ body {
   font-family : 'AlmaraiRegular';
   min-width : 320px;
 	display: flex;
+  margin : auto;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
   background : #eeeeee;
   list-style : none;
+  height : 100vh;
 }
 `;
 
