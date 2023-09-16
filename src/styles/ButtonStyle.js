@@ -33,3 +33,16 @@ export const SignUpBtn = styled.button`
   font-weight : bold;
   cursor : pointer;
 `
+export const LogoutBtn = styled.button`
+  width : 9rem;
+  height : 3.5rem;
+  margin : auto 3rem auto 0;
+  border : none;
+  border-radius : 1.5rem;
+  background-color : #8FB700;
+  color : white;
+  font-size : 1.5rem;
+  font-weight : bold;
+  cursor : pointer;
+`
+
