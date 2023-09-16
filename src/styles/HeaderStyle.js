@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   width : 100vw;
   height : 7rem;
   background : #C6DC76;
