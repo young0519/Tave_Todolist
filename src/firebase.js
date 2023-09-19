@@ -1,17 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import firebase from "firebase/compat/app";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGIN_ID,
-  appId: process.env.REACT_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  apiKey: "AIzaSyCX9Jqi8nm3SWKo0A942eVGalKMhb_z2ps",
+  authDomain: "tave-todolist.firebaseapp.com",
+  projectId: "tave-todolist",
+  storageBucket: "tave-todolist.appspot.com",
+  messagingSenderId: "223375390891",
+  appId: "1:223375390891:web:18eb16e243512092001fee",
+  measurementId: "G-QE9BVNFBYX"
 };
 
-initializeApp(firebaseConfig);
+export default firebase.initializeApp(firebaseConfig);
 
+export const auth = getAuth();
 export const db = getFirestore();
