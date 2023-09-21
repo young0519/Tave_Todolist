@@ -1,6 +1,11 @@
 import Header from "../components/Header";
 import * as m from "../styles/MainStyle"
+
+
 const Home = () => {
+  
+
+
 
   return (
     <m.MainContainer>

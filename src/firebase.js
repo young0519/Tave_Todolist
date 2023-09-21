@@ -16,5 +16,5 @@ const firebaseConfig = {
 
 export default firebase.initializeApp(firebaseConfig);
 
-export const auth = getAuth();
+export const auth = getAuth(); // 현재 접속한 사용자 인증 정보 가져오기
 export const db = getFirestore();
