@@ -20,7 +20,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-  background : #eeeeee;
+  background : #ffffff;
   list-style : none;
   height : 100vh;
 }

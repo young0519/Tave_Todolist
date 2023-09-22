@@ -24,7 +24,6 @@ const Signin = () => {
       navigate('/');
     } catch (error) {
       console.log(error.message);
-      // eslint-disable-next-line default-case
       switch (error.code) {
         case 'auth/invalid-email' :
           alert('잘못된 이메일 형식입니다')
