@@ -24,6 +24,24 @@ const Signin = () => {
       navigate('/');
     } catch (error) {
       console.log(error.message);
+      // eslint-disable-next-line default-case
+      switch (error.code) {
+        case 'auth/invalid-email' :
+          alert('잘못된 이메일 형식입니다')
+          break;
+        case 'auth/missing-password' : 
+          alert('비밀번호를 입력해주세요');
+
+          break;
+        case 'auth/user-not-found' : 
+          alert('없는 사용자 정보입니다. 회원가입 부탁드립니다.')
+          break;
+        case 'auth/email-already-in-use' :
+          alert('이미 가입되어 있는 계정입니다');
+          break;
+        default : 
+          alert('로그인에 실패하였습니다');
+      }
     }
   }
   
