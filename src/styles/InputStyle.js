@@ -24,6 +24,15 @@ export const SignUpInput = styled.div`
     font-size : 1.3rem;
     font-weight : 700;
     margin : 0 0 0.5rem 0;
+    &.error {
+      color : red;
+      font-size : 1rem;
+      margin : 0.3rem 0 0 0;
+      display : none;
+    }
+    &.error-email, &.error-pw, &.error-pwInvalid {
+      display : block;
+    }
   }
   
   input {
@@ -31,5 +40,11 @@ export const SignUpInput = styled.div`
     height : 3rem;
     border : none;
     border-radius : 0.6rem;
+    padding : 0 0.5rem;
+    &:focus {
+      outline:none;
+    }
+  
   }
+
 `
