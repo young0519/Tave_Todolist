@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 
+
 function App() {
   // console.log(db); //-> firebase 연동 확인용
   return (
@@ -16,7 +17,6 @@ function App() {
         <Route path='/Signup' element={<Signup/>}/>
       </Routes>
     </BrowserRouter>
-
   );
 }
 

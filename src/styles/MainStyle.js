@@ -30,10 +30,15 @@ export const InputContainer = styled.div`
     width : 28rem;
     height : 4rem;
     margin : auto 1rem;
+    padding : 0 0 0 1rem;
     border : none;
     border-radius : 1.5rem;
     background-color : rgba(198, 220, 118, 0.25);
     box-shadow : 0.15rem 0.15rem 0.15rem 0.15rem #d6d6d6;
+    &:focus {
+      outline:none;
+    }
+
   }
   button {
     width : 7rem;
@@ -48,20 +53,4 @@ export const InputContainer = styled.div`
     cursor : pointer;
     box-shadow : 0.1rem 0.1rem 0.1rem 0.1rem #b6b6b6;
   }
-`
-export const todoListContainer = styled.div`
-  width : 38rem;
-  height : 60rem;
-  background-color : rgba(198, 220, 118, 0.56);
-  border-radius : 3rem;
-  display : flex;
-  flex-direction : column;
-  justify-content : flex-start;
-  align-items : center;
-  margin : 1rem 0 3rem 0;
-  // 아래 부분은 추후 수정할 부분
-  color : white;
-  font-size : 2rem;
-  font-weight : bold;
-
 `

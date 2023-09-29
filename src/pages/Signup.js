@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router";
 
@@ -29,32 +29,33 @@ const Signup = () => {
   const isSame = Password === validPw;  // 비밀번호 일치 여부
 
   const register = async () => {  // async를 통해 비동기 처리 해줌
+    setErrorMessage("  ");  // Error 발생 시 들어갈 문구 초기화
     try {   // 예외가 발생할 수 있는 코드
-      // setErrorMessage("  ");  // Error 발생 시 들어갈 문구 초기화
       const user = await createUserWithEmailAndPassword(
           auth,
           Email,
           Password
       );
+      await updateProfile(auth.currentUser, { displayName: name });
       console.log(user);
       alert('회원가입이 완료되었습니다');
       navigate('/login');   // 회원가입 성공 시 로그인 화면으로 이동
 
     } catch (error) { // Error 발생 시 대응 코드
       console.log(error.message);
-      switch (error.code, isSame) {
+      switch (error.code) {
         // 이메일 및 비밀번호 오류 발생 시에만 나타날 문구 작업을 위해 classList 이용
-        case isSame == true, 'auth/weak-password' :
+        case 'auth/weak-password' :
           setErrorMessage('비밀번호 6자 이상 입력해주세요')
           errorPw.classList.add(errorpw);
           errorEmail.classList.remove(erroremail);
           break;
-        case isSame == true, 'auth/invalid-email' : 
+        case  'auth/invalid-email' : 
           setErrorMessage('이메일 형식이 올바르지 않습니다');
           errorEmail.classList.add(erroremail);
           errorPw.classList.remove(errorpw);
           break;
-        case isSame == true, 'auth/email-already-in-use' :
+        case  'auth/email-already-in-use' :
           alert('이미 가입되어 있는 계정입니다');
           break;
         case isSame == false :
@@ -70,7 +71,11 @@ const Signup = () => {
       <h1>회원 가입</h1>
       <i.SignUpInput className="inputContainer">
         <p>이름</p>
-        <input type="text"/>
+        <input 
+          type="text" 
+          onChange={(e) => {
+            setName(e.target.value);
+        }}/>
       </i.SignUpInput>
       <i.SignUpInput className="inputContainer">
         <p>이메일</p>
