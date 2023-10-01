@@ -10,7 +10,7 @@ const Header = (props) => {
   
   const onLogOutClick = () => {
     auth.signOut();
-    navigate('/login');
+    navigate('/');
   };
 
   return (

@@ -51,7 +51,7 @@ const Signin = () => {
       .then((data) => {
         setUserData(data.user); // user data 설정
         console.log(data); // console에UserCredentialImpl 출력
-        navigate('/');
+        navigate('/Todolist');
       })
       .catch((err) => {
         console.log(err);

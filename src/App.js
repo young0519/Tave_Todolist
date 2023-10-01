@@ -12,8 +12,8 @@ function App() {
     <BrowserRouter>
       <GlobalStyle/>
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Signin/>}/>
+        <Route path='/' element={<Signin/>}/>
+        <Route path='/Todolist' element={<Home/>} />
         <Route path='/Signup' element={<Signup/>}/>
       </Routes>
     </BrowserRouter>
