@@ -35,6 +35,20 @@ export const TodoItemContainer = styled.div`
     font-weight : 700;
     color : #596b1a;
   }
+
+  input {
+    width : 24rem;
+    height : 2rem;
+    background-color : rgba(198, 220, 118, 0.8);
+    border-radius : 0.4rem;
+    font-size : 1.2rem;
+    border : none;
+    padding : 0 0 0 1rem;
+    &:focus {
+      outline : 0.15rem solid white;
+      border-radius : 0.4rem;
+    }
+  }
 `
 
 export const TodoBtnContainer = styled.div`
@@ -50,6 +64,15 @@ export const TodoBtnContainer = styled.div`
     width : 3rem;
     cursor : pointer;
     &:nth-of-type(3) {
+      font-size : 3rem;
+    }
+  }
+  .editBtn {
+    color : #596b1a;
+    font-size : 2rem;
+    width : 3rem;
+    cursor : pointer;
+    &:nth-of-type(2) {
       font-size : 3rem;
     }
   }

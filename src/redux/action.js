@@ -16,6 +16,11 @@ export const DeleteTodo = (content) => {
 
 
 // 수정 Action 
-
+export const UpdateTodo = (content) => {
+  return {
+    type : 'UPDATE',
+    content
+  }
+}
 
 // 완료 Action

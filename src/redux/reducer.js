@@ -29,7 +29,19 @@ export const Reducer = (state = INITIAL_STATE, action ) => {
       };
 
     // TODO: Update
-
+    case 'UPDATE':
+      return {
+        ...state,
+        todos: state.todos.map((item) => {
+          if (item.id === action.content.id) {
+            return {
+              ...item,
+              todo: action.content.todo,
+            };
+          }
+          return item;
+        })
+      };
 
     // TODO: Complete
 
