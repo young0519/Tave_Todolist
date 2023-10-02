@@ -19,8 +19,20 @@ export const Reducer = (state = INITIAL_STATE, action ) => {
     case 'ADD' : 
       return {
         ...state,
-        todos : [...state.todos, action.contents]
+        todos : [...state.todos, action.content]
       };
+
+    case 'DELETE' : 
+      return {
+        ...state,
+        todos : state.todos.filter((item) => item.id !== action.content)
+      };
+
+    // TODO: Update
+
+
+    // TODO: Complete
+
     default : 
       return state;
   }

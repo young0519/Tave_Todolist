@@ -49,7 +49,7 @@ export const TodoBtnContainer = styled.div`
     font-size : 2rem;
     width : 3rem;
     cursor : pointer;
-    &:nth-of-type(2) {
+    &:nth-of-type(3) {
       font-size : 3rem;
     }
   }

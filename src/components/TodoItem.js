@@ -3,9 +3,18 @@ import * as t from "../styles/TodoStyle"
 import { BiEdit } from 'react-icons/bi';
 import { CgCheck, CgClose } from 'react-icons/cg';
 import { AiFillCloud } from 'react-icons/ai';
+import { useDispatch } from "react-redux";
+import { DeleteTodo } from '../redux/action'
+
 
 const TodoItem = ({item}) => {
+  const dispatch = useDispatch();
 
+  const handleDeleteClick = () => {
+    // console.log("삭제"); 
+    dispatch(DeleteTodo(item.id))
+  };
+  
   const handleEditClick = () => {
     console.log("수정"); // 수정 버튼 클릭 시 실행되는 동작
   };
@@ -15,9 +24,6 @@ const TodoItem = ({item}) => {
     console.log(item.id)  // 
   };
 
-  const handleDeleteClick = () => {
-    console.log("삭제"); 
-  };
 
 
   return (
@@ -25,7 +31,7 @@ const TodoItem = ({item}) => {
       <AiFillCloud className="icon"/>
       <p>{item.todo}</p>
       <t.TodoBtnContainer>
-        {/* <BiEdit className="todoBtn" onClick={handleEditClick} />  */}
+        <BiEdit className="todoBtn" onClick={handleEditClick} /> 
         <CgClose className="todoBtn" onClick={handleDeleteClick} /> 
         <CgCheck className="todoBtn" onClick={handleCheckClick} /> 
       </t.TodoBtnContainer>
