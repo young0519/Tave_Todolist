@@ -4,11 +4,12 @@ import { auth } from "../firebase";
 import * as m from "../styles/MainStyle"
 import TodoList from "../components/TodoList";
 import TodoInput from "../components/TodoInput";
+import { useNavigate } from "react-router";
 
 
 const Home = () => {
   const [userName, setUserName] = useState(" ");
-  
+  const navigate = useNavigate()
   // 프로필 정보 불러오는 Firebase Method
   useEffect(() => {
       const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -16,6 +17,10 @@ const Home = () => {
           // var uid = user.uid;
           const name = user.displayName;
           setUserName(name);
+        }
+        else if (!user) {
+          alert('비정상적인 접근입니다. 로그인해주세요');
+          navigate('/');
         }
       });
       return () => unsubscribe();
