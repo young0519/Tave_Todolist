@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TodoListContainer = styled.div`
-  width : 38rem;
+  width : 40rem;
   height : 60rem;
   border-radius : 3rem;
   display : flex;
@@ -9,7 +9,51 @@ export const TodoListContainer = styled.div`
   justify-content : flex-start;
   align-items : center;
   margin : 1rem 0 3rem 0;
+`
 
+export const TodoListBox = styled.div`
+  width : 40rem;
+  height : 60rem;
+  display : flex;
+  flex-direction : column;
+  justify-content : flex-start;
+  align-items : center;
+  margin : 1rem 0 3rem 0;
+  padding : 1rem;
+  overflow : scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  border-radius : 3rem;
+  border : 1px solid  #deebb2;
+
+  h2 {
+    color : #8FB700;
+    margin : 0 0 1rem 0;
+    font-size : 1.7rem;
+  }
+`
+export const TodoFinshBox = styled.div`
+  width : 40rem;
+  height : 60rem;
+  display : flex;
+  flex-direction : column;
+  justify-content : flex-start;
+  align-items : center;
+  margin : 1rem 0 3rem 0;
+  padding : 1rem;
+  overflow : scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  border-radius : 3rem;
+  border : 1px solid  #FA949A;
+
+  h2 {
+    color : #FA949A;
+    margin : 0 0 1rem 0;
+    font-size : 1.7rem;
+  }
 `
 
 export const TodoItemContainer = styled.div`
@@ -19,10 +63,10 @@ export const TodoItemContainer = styled.div`
   display : flex;
   align-items : center;
   margin : 0.1rem 0 0.5rem 0;
-  background : #deebb2;
+  background : ${(props) => props.background || "#deebb2"};
 
   .icon {
-    color : #596b1a;
+    color : ${(props) => props.color || "#596b1a"};
     font-size : 2rem;
     width : 3rem;
   }
@@ -33,7 +77,7 @@ export const TodoItemContainer = styled.div`
     font-size : 1.2rem;  
     margin-left : 1rem;
     font-weight : 700;
-    color : #596b1a;
+    color : ${(props) => props.color || "#596b1a"};
   }
 
   input {
@@ -56,10 +100,11 @@ export const TodoBtnContainer = styled.div`
   height : 3.5rem;
   display : flex;
   align-items : center;
-  justify-content : center;
+  justify-content : ${props => props.isDone ? 'flex-end' : 'center'};
+  margin : 0 1rem 0 0;
   
   .todoBtn {
-    color : #596b1a;
+    color : ${(props) => props.color || "#596b1a"};
     font-size : 2rem;
     width : 3rem;
     cursor : pointer;

@@ -6,10 +6,12 @@ export const INITIAL_STATE = {
     {
       id : uuidv4(), 
       todo:'Redux 정복하기', 
+      isDone : true,
     },
     {
       id : uuidv4(), 
       todo:'성공적인 스터디 이루기',
+      isDone : false,
     },
   ]
 }
@@ -43,7 +45,22 @@ export const Reducer = (state = INITIAL_STATE, action ) => {
         })
       };
 
-    // TODO: Complete
+    // TODO: Done
+    case 'COMPLETE' : 
+      return {
+        ...state,
+        todos : state.todos.map((item) => {
+          if (item.id === action.content) {
+            return {
+              ...item,
+              isDone : !item.isDone
+            }
+          }
+          else {
+            return item;
+          }
+        })
+      };
 
     default : 
       return state;

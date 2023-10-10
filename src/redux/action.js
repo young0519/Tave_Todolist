@@ -24,3 +24,9 @@ export const UpdateTodo = (content) => {
 }
 
 // 완료 Action
+export const CompleteTodo = (content) => {
+  return {
+    type : 'COMPLETE',
+    content
+  }
+}

@@ -15,6 +15,7 @@ const TodoInput = () => {
     const newTodo = {
       todo : toDoText,
       id : uuidv4(),
+      isDone : false,
     };
     dispatch(AddTodo(newTodo));
     setToDoText('');

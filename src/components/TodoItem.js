@@ -4,12 +4,12 @@ import { BiEdit } from 'react-icons/bi';
 import { CgCheck, CgClose } from 'react-icons/cg';
 import { AiFillCloud } from 'react-icons/ai';
 import { useDispatch } from "react-redux";
-import { DeleteTodo, UpdateTodo } from '../redux/action'
+import { CompleteTodo, DeleteTodo, UpdateTodo } from '../redux/action'
 import { useState } from "react";
 
 
 
-const TodoItem = ({item}) => {
+const TodoItem = ({item, isDone, background, color}) => {
   const dispatch = useDispatch();
   const [newText, setNewText] = useState("");
   const [isEditing, setIsEditing] = useState(false);
@@ -26,9 +26,9 @@ const TodoItem = ({item}) => {
     
   };
   
-  const handleCheckClick = (key) => {
-    console.log("완료"); 
-    console.log(item.id)  
+  const handleCheckClick = () => {
+    // console.log("완료"); 
+    dispatch(CompleteTodo(item.id));
   };
 
   const handleSaveClick = () => {
@@ -49,7 +49,7 @@ const TodoItem = ({item}) => {
 
 
   return (
-    <t.TodoItemContainer key={item.id}>
+    <t.TodoItemContainer key={item.id} background={background} color={color}>
       <AiFillCloud className="icon"/>
       {!isEditing ? (
         <p>{item.todo}</p>
@@ -60,20 +60,25 @@ const TodoItem = ({item}) => {
           onChange={(e) => setNewText(e.target.value)}
         />
       )}  
-      <t.TodoBtnContainer>
-      {!isEditing && (
-          <>
-            <BiEdit className="todoBtn" onClick={handleEditClick} />
-            <CgClose className="todoBtn" onClick={handleDeleteClick} />
-            <CgCheck className="todoBtn" onClick={handleCheckClick} />
-          </>
-        )}
-        {isEditing && (
-          <>
-            <CgClose className="editBtn" onClick={handleUndoClick} />
-            <CgCheck className="editBtn" onClick={handleSaveClick} />
-          </>
-        )}
+      <t.TodoBtnContainer color={color} isDone={isDone}>
+      {!isEditing && !isDone && (
+        <>
+          <BiEdit className="todoBtn" onClick={handleEditClick} />
+          <CgClose className="todoBtn" onClick={handleDeleteClick} />
+          <CgCheck className="todoBtn" onClick={handleCheckClick} />
+        </>
+      )}
+      {isEditing && (
+        <>
+          <CgClose className="editBtn" onClick={handleUndoClick} />
+          <CgCheck className="editBtn" onClick={handleSaveClick} />
+        </>
+      )}
+      {isDone && (
+        <>
+          <CgClose className="todoBtn" onClick={handleDeleteClick} />
+        </>
+      )}
       </t.TodoBtnContainer>
     </t.TodoItemContainer>
   )
