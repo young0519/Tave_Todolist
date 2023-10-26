@@ -21,7 +21,7 @@ const Signin = () => {
         loginPassword
       );
       // console.log(user);
-      navigate('/');
+      navigate('/Todolist');
     } catch (error) {
       console.log(error.message);
       switch (error.code) {
@@ -71,7 +71,6 @@ const Signin = () => {
         <p>password</p>
         <input type="password" onChange={(e) => {
             setLoginPassword(e.target.value);
-
         }}/>
       </i.LoginInput>
       <Link to='/signup'>회원가입</Link>

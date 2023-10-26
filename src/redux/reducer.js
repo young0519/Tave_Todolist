@@ -3,16 +3,6 @@ import {v4 as uuidv4} from 'uuid';
 // 초기 State 값
 export const INITIAL_STATE = {
   todos : [
-    {
-      id : uuidv4(), 
-      todo:'Redux 정복하기', 
-      isDone : true,
-    },
-    {
-      id : uuidv4(), 
-      todo:'성공적인 스터디 이루기',
-      isDone : false,
-    },
   ]
 }
 
@@ -27,15 +17,14 @@ export const Reducer = (state = INITIAL_STATE, action ) => {
     case 'DELETE' : 
       return {
         ...state,
-        todos : state.todos.filter((item) => item.id !== action.content)
+        todos : state.todos.filter((item) => item.todoId !== action.content)
       };
 
-    // TODO: Update
     case 'UPDATE':
       return {
         ...state,
         todos: state.todos.map((item) => {
-          if (item.id === action.content.id) {
+          if (item.todoId === action.content.todoId) {
             return {
               ...item,
               todo: action.content.todo,
@@ -45,12 +34,11 @@ export const Reducer = (state = INITIAL_STATE, action ) => {
         })
       };
 
-    // TODO: Done
     case 'COMPLETE' : 
       return {
         ...state,
         todos : state.todos.map((item) => {
-          if (item.id === action.content) {
+          if (item.todoId === action.content) {
             return {
               ...item,
               isDone : !item.isDone
@@ -60,6 +48,12 @@ export const Reducer = (state = INITIAL_STATE, action ) => {
             return item;
           }
         })
+      };
+
+    case 'SET_DOCUMENTS':
+      return {
+        ...state,
+        todos: action.payload
       };
 
     default : 

@@ -27,12 +27,12 @@ const TodoInput = () => {
     event.preventDefault();
     const newTodo = {
       todo : toDoText,
-      id : uuidv4(),
+      todoId : uuidv4(),
       isDone : false,
     };
     dispatch(AddTodo(newTodo));
     if (uid) { // uid가 있을 때만 addTodoToFirebase 함수 호출
-      addTodoToFirebase(db, uid, newTodo.id, newTodo.todo, newTodo.isDone);
+      addTodoToFirebase(db, uid, newTodo.todoId, newTodo.todo, newTodo.isDone);
     }
     setToDoText('');
   };

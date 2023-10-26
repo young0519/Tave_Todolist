@@ -30,3 +30,11 @@ export const CompleteTodo = (content) => {
     content
   }
 }
+
+// Firebase 불러오는 Action
+export const setDocuments = (documents) => {
+  return {
+    type: 'SET_DOCUMENTS',
+    payload: documents
+  };
+};

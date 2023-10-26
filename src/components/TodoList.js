@@ -13,7 +13,7 @@ function TodoList() {
           .filter((item) => item.isDone === false)
           .map((todo) => {
             return (
-              <TodoItem key={todo.id} item={todo}/>
+              <TodoItem key={todo.todoId} item={todo}/>
             );
           })}
       </t.TodoListBox>
@@ -23,7 +23,7 @@ function TodoList() {
           .filter((item) => item.isDone === true)
           .map((todo) => {
             return (
-              <TodoItem key={todo.id} item={todo} isDone={todo.isDone} background={"rgba(250, 173, 162, 0.5)"} color={"#E67278"}/>
+              <TodoItem key={todo.todoId} item={todo} isDone={todo.isDone} background={"rgba(250, 173, 162, 0.5)"} color={"#E67278"}/>
             );
           })}
       </t.TodoFinshBox>

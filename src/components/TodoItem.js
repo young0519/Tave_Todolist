@@ -37,7 +37,7 @@ const TodoItem = ({item, isDone, background, color}) => {
   const handleDeleteClick = () => {
     // console.log("삭제"); 
     dispatch(DeleteTodo(item.id));
-    DeleteTodoFirebase(db, uid, item.id)
+    DeleteTodoFirebase(db, uid, item.todoId)
   };
   
   // Todo 수정하려는 함수
@@ -51,19 +51,19 @@ const TodoItem = ({item, isDone, background, color}) => {
   // Todo 완료 함수 
   const handleCheckClick = () => {
     // console.log("완료"); 
-    dispatch(CompleteTodo(item.id));
-    updateTodoInFirebase(db, uid, item.id, newText, !item.isDone);
+    dispatch(CompleteTodo(item.todoId));
+    updateTodoInFirebase(db, uid, item.todoId, item.todo, !item.isDone);
   };
 
   //  Todo 수정 완료 함수
   const handleSaveClick = () => {
     if (newText.trim() !== "") {
       dispatch(UpdateTodo({
-        id: item.id,
+        id: item.todoId,
         todo: newText
       }));
 
-      updateTodoInFirebase(db, uid, item.id, newText, item.isDone);
+      updateTodoInFirebase(db, uid, item.todoId, newText, item.isDone);
 
       setIsEditing(false);
     }
